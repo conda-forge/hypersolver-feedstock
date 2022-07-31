@@ -1,5 +1,5 @@
 {% set name = "hypersolver" %}
-{% set version = "0.0.2" %}
+{% set version = "0.0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/hypersolver-{{ version }}.tar.gz
-  sha256: 2abd1e98c40d5fe5486b02d849e4aaf88d504193c1bf1586e5b9a884b522ea8c
+  sha256: 6cf98cc2e2cc82af7795b0fde29d717bd1141de7303babed3cdceb20d15d6ce0
 
 build:
   noarch: python
@@ -22,6 +22,7 @@ requirements:
   run:
     - numpy
     - python >=3.7
+    - scipy
 
 test:
   imports:

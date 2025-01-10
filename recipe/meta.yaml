@@ -6,22 +6,22 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/hypersolver-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/hypersolver-{{ version }}.tar.gz
   sha256: 6e0ecbf7c49d97a9979886aa00d9d38dc2b020cd8f2f4f8dbdd3bb101eff190b
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - flit-core >=3.2,<4
     - pip
-    - python >=3.7
+    - python {{ python_min }}
   run:
     - numpy
-    - python >=3.7
+    - python >={{ python_min }}
     - scipy
 
 test:
@@ -35,6 +35,7 @@ test:
   requires:
     - pip
     - pytest
+    - python {{ python_min }}
 
 about:
   home: https://pypi.org/project/hypersolver/
